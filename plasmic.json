@@ -10,5 +10,6 @@
   "pagesDir": "components/pages",
   "style": "css-modules",
   "imgDir": "public",
-  "imgUrlScheme": "public-files"
+  "imgUrlScheme": "public-files",
+  "components": []
 }
