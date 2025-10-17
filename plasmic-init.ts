@@ -4,8 +4,8 @@ import SceneViewer from "./src/components/SceneViewer"; // Adjust path if needed
 export const PLASMIC = initPlasmicLoader({
   projects: [
     {
-      id: "uQmBNRjX6qh8mPhDPoUqEr",
-      token: "QuSNbC1JX3YSI7JQ9AsbA08VIkpfkblkrfSoKoleC2qkL5g7d16haPTpq6pRLcUb8hMYH6HBK7Eafqi7K7Mg",
+      id: "4JQ5FC3rCbvG3U59yyjASf",
+      token: "TdJ1QaLkUSGx83C2n2zkEOlOollE1hqq7rpduWf1bv3pWF4mvX3gIYOWoPPfIxDK57it9JRHsnogLPawG2uw",
     },
   ],
   preview: false, // ✅ Correct placement inside the config object
