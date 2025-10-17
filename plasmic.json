@@ -1,0 +1,14 @@
+{
+  "projects": [
+    {
+      "projectId": "uQmBNRjX6qh8mPhDPoUqEr", // your actual project ID
+      "projectApiToken": "QuSNbC1JX3YSI7JQ9AsbA08VIkpfkblkrfSoKoleC2qkL5g7d16haPTpq6pRLcUb8hMYH6HBK7Eafqi7K7Mg"
+    }
+  ],
+  "platform": "nextjs",
+  "srcDir": "components",
+  "pagesDir": "components/pages",
+  "style": "css-modules",
+  "imgDir": "public",
+  "imgUrlScheme": "public-files"
+}
