@@ -1,4 +1,6 @@
-
+{
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.27/dist/plasmic.schema.json",
+  "cliVersion": "0.1.27",
   "projects": [
     {
       "projectId": "4JQ5FC3rCbvG3U59yyjASf",
