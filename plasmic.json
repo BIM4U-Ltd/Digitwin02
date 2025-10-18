@@ -1,14 +1,16 @@
 {
-  "cliVersion": "0.1.93",
+  "cliVersion": "0.1.334",
   "projects": [
     {
-      "projectId": "4Q5FGr3C6v63U59yjA5F",
-      "projectApiToken": "TuJ01pKuS6G3B2n2kE0lO1Elhzg7rpduf1IbJv3pM4FwX8gTYW06PPTnD5X71J98HmsoglPnaGzuw"
+      "projectId": "4JQ5FC3rCbvG3U59yyjASf",
+      "projectApiToken": "TdJ1QaLkUSGx83C2n2zkEOlOollE1hqq7rpduWf1bv3pWF4mvX3gIYOWoPPfIxDK57it9JRHsnogLPawG2uw"
     }
   ],
   "platform": "nextjs",
   "srcDir": "src/components",
   "pagesDir": "pages",
+  "style": "css-modules",
+  "imgDir": "public",
   "imgUrlScheme": "public-files",
   "components": []
 }
