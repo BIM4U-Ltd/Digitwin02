@@ -1,17 +1,14 @@
 {
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.27/dist/plasmic.schema.json",
-  "cliVersion": "0.1.27",
+  "cliVersion": "0.1.93",
   "projects": [
     {
-      "projectId": "4JQ5FC3rCbvG3U59yyjASf",
-      "projectApiToken": "TdJ1QaLkUSGx83C2n2zkEOlOollE1hqq7rpduWf1bv3pWF4mvX3gIYOWoPPfIxDK57it9JRHsnogLPawG2uw"
+      "projectId": "4Q5FGr3C6v63U59yjA5F",
+      "projectApiToken": "TuJ01pKuS6G3B2n2kE0lO1Elhzg7rpduf1IbJv3pM4FwX8gTYW06PPTnD5X71J98HmsoglPnaGzuw"
     }
   ],
   "platform": "nextjs",
-  "srcDir": "components",
-  "pagesDir": "components/pages",
-  "style": "css-modules",
-  "imgDir": "public",
+  "srcDir": "src/components",
+  "pagesDir": "pages",
   "imgUrlScheme": "public-files",
   "components": []
 }
