@@ -17,7 +17,7 @@ PLASMIC.registerComponent(SceneViewer, {
   props: {
     sceneId: {
       type: "string",
-      defaultValue: "Home",
+      defaultValue: "Home1",
     },
   },
 });
