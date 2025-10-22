@@ -1,27 +1,67 @@
-import React from 'react';
+import React, { useEffect, useRef } from "react";
+import { PublicClientApplication } from "@azure/msal-browser";
+import { SceneView } from "iot-cardboard-js";
 
 interface SceneViewerProps {
   sceneId?: string;
+  adtUrl?: string;
+  storageUrl?: string;
 }
 
-const SceneViewer: React.FC<SceneViewerProps> = ({ sceneId = 'Home1' }) => {
-  const adtUrl = 'https://digitwin01.api.uks.digitaltwins.azure.net';
-  const storageUrl = 'https://bim4userver1.blob.core.windows.net/bim4udigitaltwin';
+const SceneViewer: React.FC<SceneViewerProps> = ({
+  sceneId = "Home1",
+  adtUrl = "https://digitwin01.api.uks.digitaltwins.azure.net",
+  storageUrl = "https://bim4userver1.blob.core.windows.net/bim4udigitaltwin"
+}) => {
+  const viewerRef = useRef<HTMLDivElement>(null);
 
-  const viewerUrl = `https://explorer.digitaltwins.azure.net/3DScenes/demo?sceneId=${sceneId}&adtUrl=${encodeURIComponent(
-    adtUrl
-  )}&storageUrl=${encodeURIComponent(storageUrl)}`;
+  useEffect(() => {
+    const msalConfig = {
+      auth: {
+        clientId: process.env.NEXT_PUBLIC_CLIENT_ID!,
+        authority: `https://login.microsoftonline.com/${process.env.NEXT_PUBLIC_TENANT_ID}`,
+        redirectUri: window.location.origin,
+      },
+    };
 
-  return (
-    <iframe
-      src={viewerUrl}
-      width="100%"
-      height="800px"
-      frameBorder="0"
-      allowFullScreen
-      title="Azure 3D Scene"
-    />
-  );
+    const msalInstance = new PublicClientApplication(msalConfig);
+
+    async function initViewer() {
+      const request = {
+        scopes: [
+          "https://digitaltwins.azure.net/.default",
+          "https://storage.azure.com/.default",
+        ],
+      };
+
+      let account = msalInstance.getAllAccounts()[0];
+      if (!account) {
+        await msalInstance.loginPopup(request);
+        account = msalInstance.getAllAccounts()[0];
+      }
+
+      const response = await msalInstance.acquireTokenSilent({
+        ...request,
+        account,
+      });
+
+      const token = response.accessToken;
+
+      if (viewerRef.current) {
+        SceneView.initialize({
+          container: viewerRef.current,
+          sceneId,
+          adtUrl,
+          storageUrl,
+          authToken: token,
+        });
+      }
+    }
+
+    initViewer();
+  }, [sceneId, adtUrl, storageUrl]);
+
+  return <div ref={viewerRef} style={{ width: "100%", height: "800px" }} />;
 };
 
 export default SceneViewer;
