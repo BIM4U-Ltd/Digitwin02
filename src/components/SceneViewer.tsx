@@ -5,7 +5,12 @@ interface SceneViewerProps {
 }
 
 const SceneViewer: React.FC<SceneViewerProps> = ({ sceneId = 'Home1' }) => {
-  const viewerUrl = `https://digitwin01.api.uks.digitaltwins.azure.net/scenesstudio/viewer?sceneId=${sceneId}`;
+  const adtUrl = 'https://digitwin01.api.uks.digitaltwins.azure.net';
+  const storageUrl = 'https://bim4userver1.blob.core.windows.net/bim4udigitaltwin';
+
+  const viewerUrl = `https://explorer.digitaltwins.azure.net/3DScenes/demo?sceneId=${sceneId}&adtUrl=${encodeURIComponent(
+    adtUrl
+  )}&storageUrl=${encodeURIComponent(storageUrl)}`;
 
   return (
     <iframe
